@@ -54,7 +54,7 @@ import static fyp.zahir.lox.lexer.Token.Type.WHILE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class SimpleScannerTest {
+class ScannerTest {
 
     private FakeErrorReporter fakeErrorReporter;
 
@@ -174,7 +174,7 @@ class SimpleScannerTest {
     }
 
     @Nested
-    class MeaninglessCharacters {
+    class EmtpyCharacters {
 
         @Test
         void scanEmptySourceCode() {
@@ -461,7 +461,7 @@ class SimpleScannerTest {
     }
 
     @Nested
-    class ErrorCases {
+    class errorCase {
 
         @Test
         void unknownCharacter() {

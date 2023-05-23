@@ -95,21 +95,24 @@ class SimpleScanner implements Scanner {
     }
 
     @Override
+    //store raw source code as simple string
     public List<Token> scanTokens() {
         while (!isAtEnd()) {
             // We are at the beginning of the next lexeme.
             start = current;
             scanToken();
         }
-
+        //works through the source code, adding tokens until out of character.
         tokens.add(new Token(EOF, "", null, line));
         return tokens;
     }
-
+    
+    //once the scanner has scanned all characters
     private boolean isAtEnd() {
         return current >= sourceCode.length();
     }
 
+    //single characters token for LOX
     private void scanToken() {
         var nextChar = advance();
 
@@ -187,20 +190,24 @@ class SimpleScanner implements Scanner {
         }
     }
 
+    //consumes the next character
     private char advance() {
         current++;
         return sourceCode.charAt(current - 1);
     }
 
+    //output of token
     private void addToken(Type type) {
         addToken(type, null);
     }
 
+    //grabs text and creates new token
     private void addToken(Type type, Object literal) {
         var text = sourceCode.substring(start, current);
         tokens.add(new Token(type, text, literal, line));
     }
-
+    
+    
     private boolean match(char expected) {
         if (isAtEnd()) return false;
         if (sourceCode.charAt(current) != expected) return false;
