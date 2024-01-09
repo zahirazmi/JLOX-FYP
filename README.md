@@ -1,3 +1,8 @@
+## JLOX ##
+
+JLOX interpreter where it leverages byetcode and JVM. 
+- Faster Execution: Bytecode delivers efficient interpreteation.
+- Using JVM, able to run JLOX programs on any machine.
 
 
 ## Lox Lexical Grammar ##
